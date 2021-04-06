@@ -16,37 +16,45 @@ nav > div{
     justify-content: space-around;
 }
 form{
-    min-width: 220px;
+    display: flex;
+    flex: 1;
+    min-width: 220px; 
     height: 35px;
     width: 70%;
+    justify-items: flex-end;
     margin-left: 30px;
-    display: flex;
-    align-content: center;
-    font-size: small;
+    align-items: center;
+    /* font-size: small; */
     background-color: rgb(218, 124, 16);
     text-align: center;
+    border-width: 1px;
+    border-color: black;
 }
 form > i{
-    /* height: inherit; */
-    padding: 0;
-    min-width: 60px;
+    /* margin: 0; */
+    align-items: center;
+    height: fill;
+    /* padding: 0; */
+    width: 60px;
     padding-top: 4px;
-    padding: auto;
+    /* padding: auto; */
     color: black;
 }
 form > i:hover{
-    
     cursor: pointer;
     color: blanchedalmond;
 }
 
 input{
-    min-width: 160px;
-    width: 87%;
+    /* min-width: 160px; */
+    height: fill;
+    border-radius: 0;
+    width: 100%;
 }
 
 input:focus{
     outline: none;
+    border: none;
 }
 ul{
     width: 55%;
