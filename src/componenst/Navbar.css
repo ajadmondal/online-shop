@@ -16,27 +16,30 @@ nav > div{
     justify-content: space-around;
 }
 form{
+    border-radius: 3px;
     display: flex;
-    flex: 1;
+    /* flex: 1; */
     min-width: 220px; 
     height: 35px;
     width: 70%;
-    justify-items: flex-end;
+    /* justify-items: flex-end; */
     margin-left: 30px;
-    align-items: center;
+    /* align-items: center; */
     /* font-size: small; */
     background-color: rgb(218, 124, 16);
-    text-align: center;
-    border-width: 1px;
-    border-color: black;
+    /* text-align: center; */
+    /* border-width: 1px;
+    border-color: black; */
 }
 form > i{
     /* margin: 0; */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: fill;
+    /* height: fill; */
     /* padding: 0; */
-    width: 60px;
-    padding-top: 4px;
+    width: 70px;
+    /* padding-top: 4px; */
     /* padding: auto; */
     color: black;
 }
@@ -47,14 +50,27 @@ form > i:hover{
 
 input{
     /* min-width: 160px; */
-    height: fill;
-    border-radius: 0;
+    /* color: black; */
+    font-size: large;
+    /* border-radius: 3px; */
+    border: none;
+    background-color: rgb(241, 234, 222);
+    margin: 1px;
+    /* height: fill; */
+    /* border-radius: 0; */
     width: 100%;
 }
 
 input:focus{
-    outline: none;
-    border: none;
+    outline: rgb(8, 235, 235);
+    outline-style: solid;
+    outline-width: 1px;
+    /* outline-offset: 2px; */
+    /* border-radius: 5px; */
+    /* border-style: solid;
+    border-width: 4px;
+    border-color: cadetblue;
+    border-right-width: 0px; */
 }
 ul{
     width: 55%;
@@ -70,7 +86,7 @@ div > i{
     margin-left: 20px;
     display: block;
     font-size: large;
-    color: rgb(218, 124, 16);
+    color: rgb(243, 158, 61);
 }
 
 li{

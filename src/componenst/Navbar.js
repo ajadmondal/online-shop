@@ -10,7 +10,7 @@ export default function Navbar() {
             <div>
                 <i><StorefrontIcon/>Shop</i>
                 <form action="">
-                    <input type="text"/>
+                    <input type="text" placeholder="Search"/>
                     <i><SearchIcon/></i>
                 </form>
             </div>
