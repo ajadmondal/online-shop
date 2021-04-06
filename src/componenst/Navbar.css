@@ -1,0 +1,92 @@
+/* Layout *****************/
+
+nav{
+    width: 100%;
+    color: blanchedalmond;
+    background-color: black;
+    /* padding : 5px; */
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: space-evenly;
+}
+nav > div{
+    width: 45%;
+    display: flex;
+    justify-content: space-around;
+}
+form{
+    min-width: 220px;
+    height: 35px;
+    width: 70%;
+    margin-left: 30px;
+    display: flex;
+    align-content: center;
+    font-size: small;
+    background-color: rgb(218, 124, 16);
+    text-align: center;
+}
+form > i{
+    /* height: inherit; */
+    padding: 0;
+    width: 60px;
+    padding-top: 4px;
+    padding: auto;
+    color: black;
+}
+form > i:hover{
+    
+    cursor: pointer;
+    color: blanchedalmond;
+}
+
+input{
+    width: stretch;
+}
+
+input:focus{
+    outline: none;
+}
+ul{
+    width: 55%;
+    padding-right: 20px;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+/* Typography *****************************/
+div > i{
+    min-width: 90px;
+    margin-left: 20px;
+    display: block;
+    font-size: large;
+    color: rgb(218, 124, 16);
+}
+
+li{
+    margin: auto 10px;
+}
+
+/* Responsive -------------------------------------*/
+@media (max-width: 680px){
+    nav{
+        width: 100%;
+        flex-direction: column;
+    }
+    nav > div{
+        width: 100%;
+        align-content: space-around;
+        margin-right: 40px;
+    }
+    ul{
+        width: 100%;
+        padding-left: 90px;
+        margin-top: 10px;
+        justify-content: flex-start;
+    }
+    ul :last-child{
+        margin-left: auto;
+        margin-right: 30px;
+    }
+}

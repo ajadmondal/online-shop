@@ -1,0 +1,13 @@
+div{
+    justify-content: left;
+}
+h6{
+    text-align: left;
+    color: rgb(117, 117, 117);
+    margin: 0;
+    /* font-size: small; */
+}
+p{
+    text-align: left;
+    margin: 0;
+}
