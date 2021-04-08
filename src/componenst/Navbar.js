@@ -4,7 +4,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Navbar.css';
 import NavItem from './NavItem';
-export default function Navbar() {
+export default function Navbar(props) {
     return (
         <nav>
             <div>
@@ -27,7 +27,7 @@ export default function Navbar() {
                 </li>
                 <li>
                     <ShoppingCartIcon/>
-                    <span>0</span>
+                    <span>{props.cart.length}</span>
                 </li>
             </ul>
             
