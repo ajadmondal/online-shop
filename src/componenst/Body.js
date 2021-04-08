@@ -1,14 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import "./Home.css";
+import "./Body.css";
 import Item from "./Item";
-export default function Home(props) {
+export default function Body(props) {
     const [items, setItems] = useState([]);
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
-            .then(res=>res.json())
-            .then(json => setItems(json));
-        // console.log(items);
-    },[]);
+      fetch(`https://fakestoreapi.com/products${props.path}`)
+        .then((res) => res.json())
+        .then((json) => setItems(json));
+      // console.log(items);
+    }, [props.path]);
     return (
         <div className="home-container">
             {items.map(item => (

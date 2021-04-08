@@ -14,7 +14,7 @@ export default function Item(props) {
                <h3>{props.title}</h3>
                {/* <p>{props.description}</p> */}
                <div className="price">
-                    <i>$ {props.price}</i>
+                    <i><small>$</small> <strong>{props.price}</strong></i>
                     <button onClick = {handleClick}>Add to cart</button>
                </div>
             </div>

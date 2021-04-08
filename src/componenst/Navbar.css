@@ -47,7 +47,10 @@ form > i:hover{
     cursor: pointer;
     color: blanchedalmond;
 }
-
+.link{
+    text-decoration: none;
+    color: blanchedalmond;
+}
 input{
     /* min-width: 160px; */
     /* color: black; */
@@ -72,6 +75,7 @@ input:focus{
     border-color: cadetblue;
     border-right-width: 0px; */
 }
+
 ul{
     width: 55%;
     padding-right: 20px;
@@ -84,7 +88,7 @@ ul :last-child > span{
     color: rgb(223, 159, 63);
 }
 /* Typography *****************************/
-div > i{
+div > .link > i{
     min-width: 90px;
     margin-left: 20px;
     display: block;

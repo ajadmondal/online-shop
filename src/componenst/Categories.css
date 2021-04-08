@@ -6,6 +6,10 @@
     color: blanchedalmond;
     padding: 10px;
 }
+.link{
+    text-decoration: none;
+    color: blanchedalmond;
+}
 .category:hover{
     color: rgb(218, 124, 16);
     cursor: pointer;

@@ -1,55 +1,59 @@
-.container{
-    margin: 20px 10px;
-    width : 300px;
-    /* height: 400px; */
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    border-color: rgb(95, 247, 239);
-    border-width: 1px;
-    border-style: solid;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    /* align-items: center; */
+.container {
+  margin: 20px 10px;
+  width: 300px;
+  /* height: 400px; */
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  border-color: rgb(95, 247, 239);
+  border-width: 1px;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
 }
-.bottom-container{
-    margin: 4px;
-    border-top-color: rgb(95, 247, 239);
-    border-top-width: 1px;
-    border-top-style: solid;
-    margin-top: auto;
+.bottom-container {
+  margin: 4px;
+  border-top-color: rgb(95, 247, 239);
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin-top: auto;
 }
-.image-container{
-    width: 100%;
-    height: fill;
-    display: flex;
-    align-items: center;
-    /* padding: auto ; */
-    justify-content: center;
+.image-container {
+  width: 100%;
+  height: fill;
+  display: flex;
+  align-items: center;
+  /* padding: auto ; */
+  justify-content: center;
 }
-.image-container > img{
-    max-width: 80%;
-    max-height: 90%;
-    margin: auto 5px;
+.image-container > img {
+  max-width: 80%;
+  max-height: 90%;
+  margin: auto 5px;
 }
-.price{
-    text-decoration: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-right: 25px;
-    padding-bottom: 10px;
+.price {
+  text-decoration: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 25px;
+  padding-bottom: 10px;
 }
-.price > button{
-    background-color: rgb(218, 124, 16);
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-    border-radius: 3px;
-    padding: 4px;
-    /* transition: ; */
+.price > i {
+  color: rgb(218, 124, 16);
+  margin-left: 20px;
 }
-.price > button:hover{
-    color:rgb(255, 255, 255);
-    cursor: pointer;
+.price > button {
+  background-color: rgb(218, 124, 16);
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 3px;
+  padding: 4px;
+  /* transition: ; */
+}
+.price > button:hover {
+  color: rgb(255, 255, 255);
+  cursor: pointer;
 }
