@@ -8,10 +8,25 @@ import Cart from './componenst/Cart';
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
   const [cart, setCart] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+  const handleRemove = (title) => {
+    let i = 0;
+    for (; i < cart.length; i++){
+      if (cart[i].title === title)
+        break;
+    }
+    if (i > -1) {
+      const price = Number(Number(totalPrice) - Number(cart[i].price)).toFixed(2);
+      setTotalPrice(price);
+      cart.splice(i, 1);
+      setCart(cart);
+  }
+  }
   const addToCart = (e) => {
     const newcart = [...cart, e];
     setCart(newcart);
-    console.log(newcart);
+    const price = Number(Number(totalPrice) + Number(e.price)).toFixed(2);
+    setTotalPrice(price);
   }
   return (
     <Router>
@@ -23,32 +38,59 @@ function App() {
           <Categories />
         </div>
 
-        <div className="banner">
-          <img
-            src="https://www.webpaceindia.com/images/ecommerce-banner.png"
-            alt=""
-          />
-        </div>
         <Switch>
-          <Router path="/" exact>
+          <Route path="/" exact>
+            <div className="banner">
+              <img
+                src="https://www.webpaceindia.com/images/ecommerce-banner.png"
+                alt=""
+              />
+            </div>
             <Body path="" handleCart={addToCart} />
-          </Router>
-          <Router path="/electronics">
+          </Route>
+          <Route path="/electronics">
+            <div className="banner">
+              <img
+                src="https://demoopc.aeipix.com/AX01/shopnia17/demo2/image/cache/catalog/Main-Banner-2-1903x780.jpg"
+                alt=""
+              />
+            </div>
             <Body path="/category/electronics" handleCart={addToCart} />
-          </Router>
-          <Router path="/jewelery">
+          </Route>
+          <Route path="/jewelery">
+            <div className="banner">
+              <img
+                src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/15b5a866565959.5b1a0b70ac010.jpg"
+                alt=""
+              />
+            </div>
             <Body path="/category/jewelery" handleCart={addToCart} />
-          </Router>
-          <Router path="/men-clothing">
+          </Route>
+          <Route path="/men-clothing">
+            <div className="banner">
+              <img
+                src="https://www.muscatgrandmall.com/media/2437/men-fashion.jpg?anchor=center&mode=crop&width=1600&height=600&rnd=132032467470000000"
+                alt=""
+              />
+            </div>
             <Body path="/category/men clothing" handleCart={addToCart} />
-          </Router>
-          <Router path="/women-clothing">
+          </Route>
+          <Route path="/women-clothing">
+            <div className="banner">
+              <img
+                src="https://www.masonkart.com/pub/media/catalog/category/BB-Hm-Pg-Hero-Banner-NOV19-1800x693.jpg"
+                alt=""
+              />
+            </div>
             <Body path="/category/women clothing" handleCart={addToCart} />
-          </Router>
-          <Router path="/cart">
+          </Route>
+          <Route path="/cart">
             <Cart
-              items={cart} />
-          </Router>
+              items={cart}
+              handleRemove={handleRemove}
+              totalPrice={totalPrice}
+            />
+          </Route>
         </Switch>
         <Footer />
       </div>
