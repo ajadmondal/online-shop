@@ -10,12 +10,10 @@
   z-index: 1;
 }
 .Categories{
-  margin-top: 55px;
+  /* height: 39px; */
   width: 100%;
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  margin-top: 55px;
+  
 }
 .banner{
   /* margin-top: 40px; */
@@ -26,26 +24,6 @@
   width: 100%;
   /* mask-image: linear-gradient(rgb(161, 167, 168),transparent); */
   z-index: 1;
-}
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @media (max-width: 680px){

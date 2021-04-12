@@ -2,6 +2,7 @@
   margin: 20px 10px;
   /* height: 300px; */
   /* min-height: 250px; */
+  min-width: 300px;
   max-width: 600px;
   background-color: rgb(255, 255, 255);
   border-radius: 5px;

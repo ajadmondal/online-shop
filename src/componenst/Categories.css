@@ -1,16 +1,27 @@
 .categories{
     display: flex;
     justify-content: space-evenly;
-    align-content: center;
+    /* align-items: flex-end; */
     background-color: rgb(40, 67, 105);
     color: blanchedalmond;
     padding: 10px;
 }
-.link{
+.category-link{
+    margin-top: 0;
     text-decoration: none;
     color: blanchedalmond;
+    padding: 5px;
+    border-radius: 3px;
 }
-.category:hover{
+.category{
+        margin-bottom: auto;
+}
+.category-link:hover{
     color: rgb(218, 124, 16);
+    background-color: rgb(12, 46, 73);
     cursor: pointer;
+}
+.active-link{
+    color: rgb(218, 124, 16);
+    background-color: rgb(12, 46, 73);
 }

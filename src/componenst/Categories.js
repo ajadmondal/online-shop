@@ -1,21 +1,37 @@
 import React from 'react'
 import "./Categories.css";
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 export default function Categories() {
     return (
       <div className="categories">
-        <Link to="/electronics" className="link">
+        <NavLink
+          activeClassName="active-link"
+          to="/electronics"
+          className="category-link"
+        >
           <p className="category">Electronics</p>
-        </Link>
-        <Link to="/jewelery" className="link">
+        </NavLink>
+        <NavLink
+          activeClassName="active-link"
+          to="/jewelery"
+          className="category-link"
+        >
           <p className="category">Jewelery</p>
-        </Link>
-        <Link to="/men-clothing" className="link">
+        </NavLink>
+        <NavLink
+          activeClassName="active-link"
+          to="/men-clothing"
+          className="category-link"
+        >
           <p className="category">Men clothing</p>
-        </Link>
-        <Link to="/women-clothing" className="link">
+        </NavLink>
+        <NavLink
+          activeClassName="active-link"
+          to="/women-clothing"
+          className="category-link"
+        >
           <p className="category">Women clothing</p>
-        </Link>
+        </NavLink>
       </div>
     );
 }

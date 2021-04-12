@@ -1,5 +1,7 @@
 .cart-container{
-    padding: 15px;
+    width: 100%;
+    min-width: 300px;
+    /* padding: 15px; */
     display: flex;
     justify-content: center;
     align-items: flex-start ;
@@ -17,7 +19,8 @@
 
 }
 .cart-empty{
-    width: 600px;
+    min-width: 400px;
+    max-width: 600px;
     background-color: rgb(237, 241, 241);
     padding: 20px;
     margin:15px;
@@ -34,7 +37,8 @@
     color:  rgb(252, 191, 122);
 }
 .cart-container-total{
-    width: 600px;
+    min-width: 250px;
+    max-width: 600px;
     height: 600px;
     background-color: rgb(255, 255, 255);
     margin: 30px;
@@ -44,6 +48,7 @@
     align-self: flex-start;
 }
 .cart-total{
+    width: 100%;
     background-color: rgb(237, 241, 241);
     padding: 20px;
     margin:15px;
