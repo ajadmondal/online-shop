@@ -16,8 +16,8 @@ export default function Navbar(props) {
           </i>
           </Link>
           
-          <form action="">
-            <input type="text" placeholder="Search" />
+          <form className="form" action="">
+            <input className="input" type="text" placeholder="Search" />
             <i>
               <SearchIcon />
             </i>

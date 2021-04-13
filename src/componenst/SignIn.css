@@ -1,0 +1,107 @@
+.sign-in-container {
+  width: 100%;
+  height: 685px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sign-in-container .shop-logo {
+  padding: 15px;
+}
+
+.sign-in__form {
+  max-width: 400px;
+  width: 80%;
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  border-color: #8a8787;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.sign-in__form form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 15px;
+}
+
+.sign-in__form form p {
+  font-size: small;
+}
+
+.sign-in__form form input {
+  font-size: large;
+  border: none;
+  border-bottom-color: #e9a641;
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  background-color: white;
+  margin-bottom: 45px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.sign-in__form form input:focus {
+  outline: none;
+  border-bottom-color: #08ebeb;
+}
+
+.sign-in__form form button {
+  margin-top: auto;
+  border: none;
+  border-radius: 2px;
+  background-color: #e9a641;
+  color: whitesmoke;
+  padding: 5px;
+  margin: 10px 0px;
+  border-color: #e9a641;
+  border-style: solid;
+  border-width: 2px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.sign-in__form form button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+
+.sign-in__form form .create-button {
+  background-color: white;
+  color: black;
+}
+
+.input:focus {
+  outline: #08ebeb;
+  outline-style: solid;
+  outline-width: 1px;
+}
+/*# sourceMappingURL=SignIn.css.map */

@@ -15,23 +15,21 @@ nav > div{
     display: flex;
     justify-content: space-around;
 }
-form{
+.form{
     border-radius: 3px;
     display: flex;
-    /* flex: 1; */
+    flex-direction: row;
     min-width: 220px; 
     height: 35px;
     width: 70%;
     /* justify-items: flex-end; */
     margin-left: 30px;
-    /* align-items: center; */
-    /* font-size: small; */
     background-color: rgb(218, 124, 16);
     /* text-align: center; */
     /* border-width: 1px;
     border-color: black; */
 }
-form > i{
+.form > i{
     /* margin: 0; */
     display: flex;
     justify-content: center;
@@ -43,7 +41,7 @@ form > i{
     /* padding: auto; */
     color: black;
 }
-form > i:hover{
+.form i:hover{
     cursor: pointer;
     color: blanchedalmond;
 }
@@ -51,9 +49,7 @@ form > i:hover{
     text-decoration: none;
     color: blanchedalmond;
 }
-input{
-    /* min-width: 160px; */
-    /* color: black; */
+.input{
     font-size: large;
     /* border-radius: 3px; */
     border: none;
@@ -64,7 +60,7 @@ input{
     width: 100%;
 }
 
-input:focus{
+.input:focus{
     outline: rgb(8, 235, 235);
     outline-style: solid;
     outline-width: 1px;
