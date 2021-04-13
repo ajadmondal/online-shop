@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import "./SignIn.css";
-import { Link } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
+import * as firebase from "firebase/app";
+import { auth } from "../firebase";
 export default function SignIn() {
+    const history = useHistory();
     const [Email, setEmail] = useState("");
     const [Password, setPassword] = useState("");
     const handleEmail = (e) => {
@@ -12,9 +14,25 @@ export default function SignIn() {
     const handlePassword = (e) => {
       setPassword(e.target.value);
     };
-    const handleSubmit = (e) => {
+    
+    const signIn = e => {
         e.preventDefault();
-        console.log(Email, Password);
+        auth.signInWithEmailAndPassword(Email, Password)
+            .then(auth => {
+                history.push('/');
+            })
+            .catch(error => alert(error.message));
+    }
+    const register = e => {
+        e.preventDefault();
+        auth.createUserWithEmailAndPassword(Email, Password)
+            .then(auth => {
+                console.log(auth);
+                if (auth) {
+                    history.push('/');
+                }
+            })
+            .catch(error => alert(error.message));
     }
     return (
       <div className="sign-in-container">
@@ -28,7 +46,7 @@ export default function SignIn() {
         </div>
         <div className="sign-in__form">
           <h2>Sign In</h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={signIn}>
             {/* <h5>Email</h5> */}
             <input
               type="email"
@@ -47,7 +65,7 @@ export default function SignIn() {
               By signing in You accept all the terms and conditions of the shop.
             </p>
             <button type="submit">Sign In</button>
-            <button className="create-button">Create Account</button>
+            <button onClick={register} className="create-button">Create Account</button>
           </form>
         </div>
       </div>
