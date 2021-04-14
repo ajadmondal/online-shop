@@ -54,9 +54,10 @@
   background-color: rgb(218, 124, 16);
   border-style: solid;
   border-color: black;
-  border-width: 2px;
+  border-width: 0.5px;
   border-radius: 3px;
   padding: 4px;
+  transition: all 0.3s;
   /* transition: ; */
 }
 .cart-item-price > button:hover {

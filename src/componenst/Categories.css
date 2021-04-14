@@ -12,16 +12,25 @@
     color: blanchedalmond;
     padding: 5px;
     border-radius: 3px;
+    transition: all 0.3s;
 }
 .category{
         margin-bottom: auto;
 }
 .category-link:hover{
     color: rgb(218, 124, 16);
-    background-color: rgb(12, 46, 73);
+    /* background-color: rgb(12, 46, 73); */
+    border: none;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(218, 124, 16);
     cursor: pointer;
 }
 .active-link{
     color: rgb(218, 124, 16);
-    background-color: rgb(12, 46, 73);
+    /* background-color: rgb(12, 46, 73); */
+    border: none;
+    border-bottom-style: solid ;
+    border-bottom-width: 2px;
+    border-bottom-color: rgb(218, 124, 16);
 }
