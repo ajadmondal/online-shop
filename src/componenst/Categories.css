@@ -1,36 +1,40 @@
 .categories{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
     /* align-items: flex-end; */
     background-color: rgb(40, 67, 105);
     color: blanchedalmond;
     padding: 10px;
+    padding-left: 10%;
 }
 .category-link{
-    margin-top: 0;
+    margin-left: 20px;
     text-decoration: none;
     color: blanchedalmond;
     padding: 5px;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: none;
+    border-bottom-style: solid ;
+    border-bottom-width: 3px;
+    border-bottom-color: rgb(4, 28, 48);
+    cursor: pointer;
     transition: all 0.3s;
 }
 .category{
+    /* margin: auto 30px; */
         margin-bottom: auto;
 }
 .category-link:hover{
-    color: rgb(218, 124, 16);
+    color: rgb(180, 225, 247);
     /* background-color: rgb(12, 46, 73); */
-    border: none;
-    border-bottom-style: solid ;
-    border-bottom-width: 2px;
-    border-bottom-color: rgb(218, 124, 16);
+    
+    border-bottom-color: rgb(180, 225, 247);
     cursor: pointer;
 }
 .active-link{
     color: rgb(218, 124, 16);
     /* background-color: rgb(12, 46, 73); */
-    border: none;
-    border-bottom-style: solid ;
-    border-bottom-width: 2px;
+    
     border-bottom-color: rgb(218, 124, 16);
+    
 }

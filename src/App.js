@@ -1,15 +1,17 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './App.css';
 import Body from "./componenst/Body";
 import Navbar from './componenst/Navbar';
 import Footer from "./componenst/Footer";
 import Categories from './componenst/Categories';
 import Cart from './componenst/Cart';
-import SignIn from "./componenst/SignIn";
+// import SignIn from "./componenst/SignIn";
+import { auth } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [user, setUser] = useState();
   const handleRemove = (title) => {
     let i = 0;
     for (; i < cart.length; i++){
@@ -29,16 +31,26 @@ function App() {
     const price = Number(Number(totalPrice) + Number(e.price)).toFixed(2);
     setTotalPrice(price);
   }
+  useEffect(() => {
+    auth.onAuthStateChanged(authUser => {
+      if (authUser) {
+        setUser(authUser);
+      }
+      else {
+        setUser(null);
+      }
+    })
+  }, [user]);
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/signin">
+          {/* <Route path="/signin">
             <SignIn />
-          </Route>
+          </Route> */}
           <Route path="/" exact>
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />
@@ -53,7 +65,7 @@ function App() {
           </Route>
           <Route path="/electronics">
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />
@@ -68,7 +80,7 @@ function App() {
           </Route>
           <Route path="/jewelery">
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />
@@ -83,7 +95,7 @@ function App() {
           </Route>
           <Route path="/men-clothing">
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />
@@ -98,7 +110,7 @@ function App() {
           </Route>
           <Route path="/women-clothing">
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />
@@ -113,7 +125,7 @@ function App() {
           </Route>
           <Route path="/cart">
             <div className="Navbar">
-              <Navbar cart={cart} />
+              <Navbar cart={cart} user={user} />
             </div>
             <div className="Categories">
               <Categories />

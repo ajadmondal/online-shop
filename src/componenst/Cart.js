@@ -2,7 +2,7 @@ import React from 'react'
 import "./Cart.css";
 import CartItem from "./CartItem";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { BrowserRouter as Router, Link, Route} from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Cart(props) {
   return (
     <div>

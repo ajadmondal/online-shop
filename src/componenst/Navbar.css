@@ -55,7 +55,7 @@ nav > div{
     border: none;
     background-color: rgb(241, 234, 222);
     margin: 1px;
-    height: fill;
+    height: stretch;
     /* border-radius: 0; */
     width: 100%;
 }

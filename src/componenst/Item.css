@@ -21,7 +21,7 @@
 }
 .image-container {
   width: 100%;
-  height: fill;
+  height: stretch;
   display: flex;
   align-items: center;
   /* padding: auto ; */

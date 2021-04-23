@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import "./SignIn.css";
 import { Link, useHistory } from "react-router-dom";
-import * as firebase from "firebase/app";
+// import * as firebase from "firebase/app";
 import { auth } from "../firebase";
 export default function SignIn() {
     const history = useHistory();

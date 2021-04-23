@@ -4,18 +4,33 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Navbar.css';
 import NavItem from './NavItem';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import firebase from "firebase/app";
+import { auth } from "../firebase";
 export default function Navbar(props) {
+  const history = useHistory();
+  const provider = new firebase.auth.GoogleAuthProvider();
+  // const [logdIn, setlogdIn] = useState(false);
+  const signInOut = () => {
+    !props.user
+      ? auth
+          .signInWithPopup(provider)
+          .then((auth) => {
+            history.push("/");
+          })
+          .catch((error) => alert(error.message))
+      : auth.signOut().catch((error) => alert(error.message));
+  };
     return (
       <nav>
         <div>
           <Link className="link" to="/">
             <i>
-            <StorefrontIcon />
-            Shop
-          </i>
+              <StorefrontIcon />
+              Shop
+            </i>
           </Link>
-          
+
           <form className="form" action="">
             <input className="input" type="text" placeholder="Search" />
             <i>
@@ -26,8 +41,14 @@ export default function Navbar(props) {
 
         <ul>
           <li className="nav-item">
-            <Link className="link" to="/signin">
-              <NavItem span="Hello" text="Sign In" />
+            <Link className="link" onClick={signInOut} >
+              {
+              props.user ?
+               <NavItem span={props.user.displayName} text="Log out" /> :
+               <NavItem span="Hello Guest" text="Sign In" />
+              
+              }
+             
             </Link>
           </li>
           <li className="nav-item">
@@ -36,7 +57,7 @@ export default function Navbar(props) {
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="link" to="/premium">
+            <Link className="link">
               <NavItem span="Your" text="Premium" />
             </Link>
           </li>
