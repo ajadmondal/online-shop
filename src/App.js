@@ -6,7 +6,7 @@ import Footer from "./componenst/Footer";
 import Categories from './componenst/Categories';
 import Cart from './componenst/Cart';
 import Orders from "./componenst/Orders";
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
   const [cart, setCart] = useState([]);
@@ -24,6 +24,7 @@ function App() {
       setTotalPrice(price);
       cart.splice(i, 1);
       setCart(cart);
+      if(user) updateToDB(cart, price);
   }
   }
   const addToCart = (e) => {
@@ -31,6 +32,24 @@ function App() {
     setCart(newcart);
     const price = Number(Number(totalPrice) + Number(e.price)).toFixed(2);
     setTotalPrice(price);
+    if(user) updateToDB(newcart, price);
+  }
+  const updateToDB = (newcart, price) => {
+    db.collection("users")
+      .doc(user?.uid)
+      .collection("cart")
+      .doc("cart")
+      .set({
+        totalPrice: price,
+        basket: JSON.stringify(newcart),
+      })
+      .then(() => {
+        console.log("Document successfully updated!");
+      })
+      .catch((error) => {
+        // The document probably doesn't exist.
+        console.error("Error updating document: ", error);
+      });
   }
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
@@ -42,20 +61,51 @@ function App() {
       }
     })
   }, [user]);
+
+  // handling cart------------------------------------------------
+  useEffect(() => {
+    if (!user) {
+      setCart([]);
+    } else {
+      const rute = db
+        .collection("users")
+        .doc(user?.uid)
+        .collection("cart")
+        .doc("cart");
+        rute
+          .get()
+          .then((doc) => {
+            const data = doc.data();
+            const basket = JSON.parse(data.basket);
+            const price = data.totalPrice;
+            console.log(basket);
+            console.log(price);
+            setCart(basket);
+            setTotalPrice(price);
+            // updateToDB([...cart, ...basket], price + totalPrice);
+          })
+          .catch((error) => {
+            console.log("Error getting document:", error);
+          });
+    }
+  }, [user]);
   return (
     <Router>
       <div className="App">
         <div className="Navbar">
-          <Navbar cart={cart} user={user} setCart={setCart} setUser={setUser} />
+          <Navbar
+            cart={cart}
+            user={user}
+            setCart={setCart}
+            setUser={setUser}
+            setTotalPrice={setTotalPrice}
+            updateToDB={updateToDB}
+          />
         </div>
         <Switch>
           <Route path="/orders&returns">
             <div className="ordr">
-              <Orders user={user}
-                orders={orders}
-                setOrders = {setOrders}
-              />
-              
+              <Orders user={user} orders={orders} setOrders={setOrders} />
             </div>
           </Route>
           <Route path="/" exact>
@@ -126,6 +176,8 @@ function App() {
                 handleRemove={handleRemove}
                 totalPrice={totalPrice}
                 setCart={setCart}
+                setTotalPrice={setTotalPrice}
+                updateToDB={updateToDB}
               />
             </div>
           </Route>

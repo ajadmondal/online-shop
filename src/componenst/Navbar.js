@@ -6,7 +6,7 @@ import './Navbar.css';
 import NavItem from './NavItem';
 import { Link, useHistory } from 'react-router-dom';
 import firebase from "firebase/app";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 export default function Navbar(props) {
   const history = useHistory();
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -14,12 +14,33 @@ export default function Navbar(props) {
   const signInOut = () => {
     !props.user
       ? auth
-          .signInWithPopup(provider)
+        .signInWithPopup(provider)
+        .then(() => {
+          // const rute = db
+          //   .collection("users")
+          //   .doc(props.user?.uid)
+          //   .collection("cart")
+          //   .doc("cart");
+          // rute.get().then((doc) => {
+          //   const data = doc.data();
+          //   const basket = JSON.parse(data.basket);
+          //   const price = data.totalPrice;
+          //   console.log(basket);
+          //   console.log(price);
+          //   props.setCart([...props.cart, ...basket]);
+          //   props.setTotalPrice(price + props.totalPrice);
+          //   props.updateToDB(
+          //     [...props.cart, ...basket],
+          //     price + props.totalPrice
+          //   );
+        // });
+        })
           .catch((error) => alert(error.message))
       : auth.signOut()
         .then(() => {
           props.setUser(null);
           props.setCart([]);
+          props.setTotalPrice(0);
         })
         .catch((error) => alert(error.message));
   };

@@ -33,6 +33,8 @@ export default function Cart(props) {
         .then(() => {
           history.push("/orders&returns");
           props.setCart([]);
+          props.setTotalPrice(0);
+          props.updateToDB([], 0);
         });
     }
     
