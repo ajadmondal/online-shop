@@ -15,11 +15,13 @@ export default function Navbar(props) {
     !props.user
       ? auth
           .signInWithPopup(provider)
-          .then((auth) => {
-            history.push("/");
-          })
           .catch((error) => alert(error.message))
-      : auth.signOut().catch((error) => alert(error.message));
+      : auth.signOut()
+        .then(() => {
+          props.setUser(null);
+          props.setCart([]);
+        })
+        .catch((error) => alert(error.message));
   };
     return (
       <nav>
@@ -27,7 +29,7 @@ export default function Navbar(props) {
           <Link className="link" to="/">
             <i>
               <StorefrontIcon />
-              Shop
+              ShopX
             </i>
           </Link>
 

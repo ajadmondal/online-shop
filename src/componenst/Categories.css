@@ -1,12 +1,13 @@
 .categories{
     display: flex;
     justify-content: left;
-    /* align-items: flex-end; */
+    /* align-items: flex-start; */
     background-color: rgb(40, 67, 105);
     color: blanchedalmond;
     padding: 10px;
     padding-left: 10%;
 }
+
 .category-link{
     margin-left: 20px;
     text-decoration: none;

@@ -3,7 +3,41 @@ import "./Cart.css";
 import CartItem from "./CartItem";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Link } from "react-router-dom";
+import { db } from '../firebase';
+import { v4 as uuidv4 } from "uuid";
+import { useHistory } from 'react-router-dom';
+
 export default function Cart(props) {
+  const user = props.user;
+  const items = [...props.items];
+  const history = useHistory();
+  const checkout = () => {
+    if (!user) {
+     alert("Please Sign In to Proceed.");
+    }
+    else {
+      const d = new Date();
+      const id = uuidv4();
+
+      db.collection("users")
+        .doc(user?.uid)
+        .collection("orders")
+        .doc(id)
+        .set({
+          id: id,
+          status: "Processing..",
+          amount: props.totalPrice,
+          date: d,
+          basket: JSON.stringify(items),
+        })
+        .then(() => {
+          history.push("/orders&returns");
+          props.setCart([]);
+        });
+    }
+    
+    
+  }
   return (
     <div>
       {props.items.length === 0 ? (
@@ -29,6 +63,7 @@ export default function Cart(props) {
                 description={item.description}
                 price={item.price}
                 handleRemove={props.handleRemove}
+                cart = {true}
               />
             ))}
           </div>
@@ -54,7 +89,9 @@ export default function Cart(props) {
                     <strong>{props.totalPrice}</strong>
                   </i>
                 </p>
-                <button>Proceed to Checkout</button>
+                <button onClick={checkout}>
+                  Proceed to Checkout
+                </button>
               </div>
             </div>
           )}

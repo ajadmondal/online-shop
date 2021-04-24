@@ -1,0 +1,134 @@
+.orders__container {
+  width: 70%;
+  min-height: 600px;
+  margin: 0px auto;
+  margin-top: 80px;
+  color: #364147;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.empty__container {
+  width: 100%;
+  min-height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.empty__order {
+  min-width: 400px;
+  max-width: 600px;
+  background-color: #edf1f1;
+  padding: 20px;
+  margin: 15px;
+  min-height: 60px;
+  border-color: #f7b05f;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.order__container {
+  margin: 20px 0;
+  background-color: #edf1f1;
+  padding: 20px;
+  border-style: dashed;
+  border-width: 2px;
+  border-color: #ee9b3c;
+}
+
+.order__container p {
+  font-weight: 600;
+}
+
+.order__container p > i {
+  color: #ee9b3c;
+}
+
+.order__container h5 {
+  text-align: left;
+  font-weight: 400;
+}
+
+.dim {
+  border-color: #c0baba;
+  border-style: dashed;
+  border-width: 2px;
+}
+
+.order__pay {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.order__pay .button {
+  margin: auto 10px;
+  padding: 5px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.order__pay .pay {
+  background-color: #83cc61;
+}
+
+.order__pay .pay:hover {
+  background-color: #b7e576;
+  cursor: pointer;
+}
+
+.order__pay .return {
+  background-color: #a6a8a8;
+}
+
+.order__pay .return:hover {
+  background-color: #e0d8af;
+  cursor: pointer;
+}
+
+.link {
+  color: #ee9b3c;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.link :hover {
+  color: #fcbf7a;
+}
+
+.orders__heading {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+@media (max-width: 400px) {
+  .orders__container {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=Orders.css.map */

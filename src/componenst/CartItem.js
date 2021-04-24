@@ -1,3 +1,4 @@
+import { MicNoneTwoTone } from '@material-ui/icons';
 import React from 'react';
 import './CartItem.css';
 
@@ -12,13 +13,15 @@ export default function CartItem(props) {
         </div>
 
         <div className="cart-item-bottom-container">
-          <h3>{props.title}</h3>
+          <h3 className="h3">{props.title}</h3>
           <p>{props.description}</p>
           <div className="cart-item-price">
             <i>
               <small>$</small> <strong>{props.price}</strong>
             </i>
-            <button onClick={handleClick}>Remove</button>
+            {
+              props.cart ? <button onClick={handleClick}>Remove</button>: null
+            }
           </div>
         </div>
       </div>

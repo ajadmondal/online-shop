@@ -24,6 +24,9 @@
   justify-items: flex-start;
   /* align-items: flex-start; */
 }
+.h3{
+    text-align: left;
+}
 .cart-item-image-container {
   width: 30%;
   /* height: fill; */

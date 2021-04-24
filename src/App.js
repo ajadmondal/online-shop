@@ -5,13 +5,14 @@ import Navbar from './componenst/Navbar';
 import Footer from "./componenst/Footer";
 import Categories from './componenst/Categories';
 import Cart from './componenst/Cart';
-// import SignIn from "./componenst/SignIn";
+import Orders from "./componenst/Orders";
 import { auth } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [user, setUser] = useState();
+  const [orders, setOrders] = useState([]);
   const handleRemove = (title) => {
     let i = 0;
     for (; i < cart.length; i++){
@@ -44,14 +45,20 @@ function App() {
   return (
     <Router>
       <div className="App">
+        <div className="Navbar">
+          <Navbar cart={cart} user={user} setCart={setCart} setUser={setUser} />
+        </div>
         <Switch>
-          {/* <Route path="/signin">
-            <SignIn />
-          </Route> */}
-          <Route path="/" exact>
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
+          <Route path="/orders&returns">
+            <div className="ordr">
+              <Orders user={user}
+                orders={orders}
+                setOrders = {setOrders}
+              />
+              
             </div>
+          </Route>
+          <Route path="/" exact>
             <div className="Categories">
               <Categories />
             </div>
@@ -64,9 +71,6 @@ function App() {
             <Body path="" handleCart={addToCart} />
           </Route>
           <Route path="/electronics">
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
-            </div>
             <div className="Categories">
               <Categories />
             </div>
@@ -79,9 +83,6 @@ function App() {
             <Body path="/category/electronics" handleCart={addToCart} />
           </Route>
           <Route path="/jewelery">
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
-            </div>
             <div className="Categories">
               <Categories />
             </div>
@@ -94,9 +95,6 @@ function App() {
             <Body path="/category/jewelery" handleCart={addToCart} />
           </Route>
           <Route path="/men-clothing">
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
-            </div>
             <div className="Categories">
               <Categories />
             </div>
@@ -109,9 +107,6 @@ function App() {
             <Body path="/category/men clothing" handleCart={addToCart} />
           </Route>
           <Route path="/women-clothing">
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
-            </div>
             <div className="Categories">
               <Categories />
             </div>
@@ -124,17 +119,15 @@ function App() {
             <Body path="/category/women clothing" handleCart={addToCart} />
           </Route>
           <Route path="/cart">
-            <div className="Navbar">
-              <Navbar cart={cart} user={user} />
+            <div className="Cart">
+              <Cart
+                user={user}
+                items={cart}
+                handleRemove={handleRemove}
+                totalPrice={totalPrice}
+                setCart={setCart}
+              />
             </div>
-            <div className="Categories">
-              <Categories />
-            </div>
-            <Cart
-              items={cart}
-              handleRemove={handleRemove}
-              totalPrice={totalPrice}
-            />
           </Route>
         </Switch>
         <Footer />

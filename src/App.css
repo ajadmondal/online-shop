@@ -9,7 +9,7 @@
   top: 0px;
   z-index: 1;
 }
-.Categories{
+.Categories , .Cart, .ordr{
   /* height: 39px; */
   width: 100%;
   margin-top: 55px;
@@ -27,7 +27,7 @@
 }
 
 @media (max-width: 680px){
-  .Categories{
+  .Categories, .Cart, .ordr{
     margin-top: 95px;
   }
 }
