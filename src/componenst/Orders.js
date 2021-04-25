@@ -5,7 +5,6 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import { Link, useHistory } from "react-router-dom";
 import CartItem from "./CartItem";
 import { v4 as uuidv4 } from "uuid";
-import { BorderColor } from '@material-ui/icons';
 const Orders = (props) => {
   const [changed, setChanged] = useState(true);
     const user = props.user;
@@ -87,7 +86,7 @@ const Orders = (props) => {
         </div>
       ) : (
         <>
-          <h4 className="order__heading">Your Orders & Returns</h4>
+          <h2 className="order__heading">Your Orders & Returns</h2>
           <>
             {orders.map((order) => (
               <>

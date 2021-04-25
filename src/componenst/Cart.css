@@ -45,7 +45,7 @@
 .cart-container-total{
     min-width: 250px;
     max-width: 600px;
-    height: 600px;
+    /* height: 600px; */
     background-color: rgb(255, 255, 255);
     margin: 30px;
     /* border-left-color: rgb(247, 176, 95);
@@ -88,12 +88,13 @@
         align-items: center;
     }
     .cart-container-total{
-    margin: 30px;
+        margin: unset;
+        margin: 30px auto;
     /* border-top-color: rgb(247, 176, 95);
     border-top-width: 2px;
     border-left-style: none;
     border-top-style: solid; */
-    align-self: center;
+    /* align-self: center; */
     }
 }
 @media (max-width : 400px){

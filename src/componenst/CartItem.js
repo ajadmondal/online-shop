@@ -1,4 +1,3 @@
-import { MicNoneTwoTone } from '@material-ui/icons';
 import React from 'react';
 import './CartItem.css';
 

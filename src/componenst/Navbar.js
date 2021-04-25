@@ -6,7 +6,7 @@ import './Navbar.css';
 import NavItem from './NavItem';
 import { Link } from 'react-router-dom';
 import firebase from "firebase/app";
-import { auth, db } from "../firebase";
+import { auth } from "../firebase";
 export default function Navbar(props) {
   const provider = new firebase.auth.GoogleAuthProvider();
   const signInOut = () => {

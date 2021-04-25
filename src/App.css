@@ -26,6 +26,7 @@
   z-index: 1;
 }
 
+
 @media (max-width: 680px){
   .Categories, .Cart, .ordr{
     margin-top: 95px;
