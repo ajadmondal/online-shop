@@ -33,13 +33,20 @@
 .empty__order {
   min-width: 400px;
   max-width: 600px;
-  background-color: #edf1f1;
+  background-color: #e7ecec;
   padding: 20px;
   margin: 15px;
   min-height: 60px;
   border-color: #f7b05f;
-  border-width: 1px;
-  border-style: solid;
+  border-width: 2px;
+  border-style: dashed;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+}
+
+.empty__order:hover {
+  cursor: pointer;
+  background-color: #f1f1f1;
 }
 
 .order__container {
@@ -126,9 +133,13 @@
       justify-self: center;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 700px) {
   .orders__container {
-    width: 100%;
+    width: 90%;
+    min-height: 500px;
+  }
+  .empty__container {
+    min-height: 500px;
   }
 }
 /*# sourceMappingURL=Orders.css.map */

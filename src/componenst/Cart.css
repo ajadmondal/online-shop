@@ -22,14 +22,18 @@
 .cart-empty{
     min-width: 400px;
     max-width: 600px;
-    background-color: rgb(237, 241, 241);
+    background-color: rgb(231, 236, 236);
     padding: 20px;
     margin:15px;
     min-height: 60px;
     border-color: rgb(247, 176, 95);
-    border-width: 1px;
-    border-style: solid;
+    border-width: 2px;
+    border-style: dashed;
 
+}
+.cart-empty:hover{
+    cursor: pointer;
+    background-color: rgb(241, 241, 241);
 }
 .link{
     color: rgb(238, 155, 60);

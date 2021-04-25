@@ -37,14 +37,15 @@ export default function Cart(props) {
           props.updateToDB([], 0);
         });
     }
-    
-    
   }
+  const redirect = () => {
+    history.push("/");
+  };
   return (
     <div>
       {props.items.length === 0 ? (
         <div className="cart-empty-container">
-          <div className="cart-empty">
+          <div className="cart-empty" onClick={redirect}>
             <h3>Your cart is empty!</h3>
             <Link className="link" to="">
               <h5>Continue Shopping</h5>
@@ -65,13 +66,13 @@ export default function Cart(props) {
                 description={item.description}
                 price={item.price}
                 handleRemove={props.handleRemove}
-                cart = {true}
+                cart={true}
               />
             ))}
           </div>
           {props.items.length === 0 ? (
             <div className="cart-empty-container">
-              <div className="cart-empty">
+              <div className="cart-empty" onClick={redirect}>
                 <h3>Your cart is empty!</h3>
                 <Link className="link" to="">
                   <h5>Continue Shopping</h5>
@@ -91,9 +92,7 @@ export default function Cart(props) {
                     <strong>{props.totalPrice}</strong>
                   </i>
                 </p>
-                <button onClick={checkout}>
-                  Proceed to Checkout
-                </button>
+                <button onClick={checkout}>Proceed to Checkout</button>
               </div>
             </div>
           )}

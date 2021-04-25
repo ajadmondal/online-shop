@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './Orders.css';
 import { db } from "../firebase";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import CartItem from "./CartItem";
 import { v4 as uuidv4 } from "uuid";
 import { BorderColor } from '@material-ui/icons';
@@ -66,11 +66,16 @@ const Orders = (props) => {
       });
     setChanged(!changed);
   };
+  const history = useHistory();
+  const redirect = () => {
+    
+    history.push("/");
+  }
   return (
     <div className="orders__container">
       {orders.length === 0 ? (
         <div className="empty__container">
-          <div className="empty__order">
+          <div className="empty__order" onClick={redirect}>
             <h3>You have not ordered yet!</h3>
             <Link className="link" to="/">
               <h5>Continue Shopping</h5>

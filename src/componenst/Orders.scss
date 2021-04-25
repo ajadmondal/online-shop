@@ -19,13 +19,18 @@
 .empty__order{
     min-width: 400px;
     max-width: 600px;
-    background-color: rgb(237, 241, 241);
+    background-color: rgb(231, 236, 236);
     padding: 20px;
     margin:15px;
     min-height: 60px;
     border-color: rgb(247, 176, 95);
-    border-width: 1px;
-    border-style: solid;
+    border-width: 2px;
+    border-style: dashed;
+    transition: all 0.1s;
+    &:hover{
+        cursor: pointer;
+        background-color: rgb(241, 241, 241);
+    }
 }
 .order__container{
     margin:20px 0 ;
@@ -90,8 +95,12 @@ h5{
     align-self: center;
     justify-self: center;
 }
-@media (max-width : 400px){
+@media (max-width : 700px){
     .orders__container{
-        width: 100%;
+        width: 90%;
+        min-height: 500px;
+    }
+    .empty__container{
+        min-height: 500px;
     }
 } 

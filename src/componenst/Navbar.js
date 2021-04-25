@@ -4,13 +4,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Navbar.css';
 import NavItem from './NavItem';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import firebase from "firebase/app";
 import { auth, db } from "../firebase";
 export default function Navbar(props) {
-  const history = useHistory();
   const provider = new firebase.auth.GoogleAuthProvider();
-  // const [logdIn, setlogdIn] = useState(false);
   const signInOut = () => {
     !props.user
       ? auth
