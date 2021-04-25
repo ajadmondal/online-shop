@@ -53,6 +53,13 @@
   margin-left: 20px;
 }
 
+.intro .description .name {
+  border-left-style: solid;
+  border-left-color: #85ddff;
+  border-left-width: 4px;
+  padding-left: 9px;
+}
+
 .intro .description h5 {
   color: #c7c4b7;
   font-weight: 400;

@@ -29,6 +29,13 @@
     .description{
         text-align: left;
         margin-left: 20px;
+        .name{
+            border-left-style: solid;
+            border-left-color: rgb(133, 221, 255);
+            border-left-width: 4px;
+            padding-left: 9px;
+        }
+        
         h5{
             color: rgb(199, 196, 183);
             font-weight: 400;

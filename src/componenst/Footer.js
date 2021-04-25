@@ -21,8 +21,11 @@ export default function Footer() {
             />
             <div className="description">
               <h5>Developer Intro</h5>
-              <h3>Sk Ajad Mondal</h3>
-              <h4>React Developer</h4>
+              <div className="name">
+                <h3>Sk Ajad Mondal</h3>
+                <h4>React Developer</h4>
+              </div>
+
               <p>
                 I am an undergraduate Computer Science Engineer. I am passionate
                 about Web Development, and love to make Web Apps in React. I
