@@ -6,6 +6,7 @@ import Footer from "./componenst/Footer";
 import Categories from './componenst/Categories';
 import Cart from './componenst/Cart';
 import Orders from "./componenst/Orders";
+
 import { auth, db } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
@@ -13,6 +14,7 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [user, setUser] = useState();
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
   const handleRemove = (title) => {
     let i = 0;
     for (; i < cart.length; i++){
@@ -102,10 +104,17 @@ function App() {
             updateToDB={updateToDB}
           />
         </div>
+        
         <Switch>
           <Route path="/orders&returns">
             <div className="ordr">
-              <Orders user={user} orders={orders} setOrders={setOrders} />
+              <Orders
+                loading={loading}
+                setLoading={setLoading}
+                user={user}
+                orders={orders}
+                setOrders={setOrders}
+              />
             </div>
           </Route>
           <Route path="/" exact>
@@ -118,7 +127,12 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="" handleCart={addToCart} />
+            <Body
+              loading={loading}
+              setLoading={setLoading}
+              path=""
+              handleCart={addToCart}
+            />
           </Route>
           <Route path="/electronics">
             <div className="Categories">
@@ -130,7 +144,12 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/electronics" handleCart={addToCart} />
+            <Body
+              loading={loading}
+              setLoading={setLoading}
+              path="/category/electronics"
+              handleCart={addToCart}
+            />
           </Route>
           <Route path="/jewelery">
             <div className="Categories">
@@ -142,7 +161,12 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/jewelery" handleCart={addToCart} />
+            <Body
+              loading={loading}
+              setLoading={setLoading}
+              path="/category/jewelery"
+              handleCart={addToCart}
+            />
           </Route>
           <Route path="/men-clothing">
             <div className="Categories">
@@ -154,7 +178,12 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/men clothing" handleCart={addToCart} />
+            <Body
+              loading={loading}
+              setLoading={setLoading}
+              path="/category/men clothing"
+              handleCart={addToCart}
+            />
           </Route>
           <Route path="/women-clothing">
             <div className="Categories">
@@ -166,7 +195,12 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/women clothing" handleCart={addToCart} />
+            <Body
+              loading={loading}
+              setLoading={setLoading}
+              path="/category/women clothing"
+              handleCart={addToCart}
+            />
           </Route>
           <Route path="/cart">
             <div className="Cart">

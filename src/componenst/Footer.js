@@ -9,6 +9,8 @@ import { GoRepoForked } from "react-icons/go";
 import { HiOutlineMail } from "react-icons/hi";
 import { SiLeetcode } from "react-icons/si";
 
+
+
 export default function Footer() {
     return (
       <div className="footer">
@@ -20,6 +22,8 @@ export default function Footer() {
               className="profile"
             />
             <div className="description">
+              
+
               <h5>Developer Intro</h5>
               <div className="name">
                 <h3>Sk Ajad Mondal</h3>

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Categories.css";
 import { NavLink } from 'react-router-dom';
-export default function Categories() {
+export default function Categories(props) {
     return (
       <div className="categories">
         <NavLink

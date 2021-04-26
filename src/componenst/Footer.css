@@ -185,4 +185,15 @@
     margin: 20px auto;
   }
 }
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 /*# sourceMappingURL=Footer.css.map */
