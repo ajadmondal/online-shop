@@ -6,6 +6,7 @@
     color: blanchedalmond;
     padding: 10px;
     padding-left: 10%;
+    transition: all 1s ease-in;
 }
 
 .category-link{
@@ -38,4 +39,9 @@
     
     border-bottom-color: rgb(218, 124, 16);
     
+}
+@media (max-width: 545px){
+  .categories{
+    display: none;
+  }
 }

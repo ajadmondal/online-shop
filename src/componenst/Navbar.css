@@ -95,6 +95,10 @@ div > .link > i{
 li{
     margin: auto 10px;
 }
+.cart-icon{
+    display: flex;
+    align-items: center;
+}
 
 /* Responsive -------------------------------------*/
 @media (max-width: 680px){
@@ -119,4 +123,14 @@ li{
         /* right: 20px; */
         /* margin-right: 25px; */
     }
+}
+@media (max-width: 484px){
+  ul{
+      width: 100%;
+      padding-left: 10px;
+      margin-left: 0px;
+  }
+  .cart-icon{
+      padding-right: 10px;
+  }
 }

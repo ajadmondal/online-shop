@@ -31,8 +31,8 @@
 }
 
 .empty__order {
-  min-width: 400px;
-  max-width: 600px;
+  width: 400px;
+  max-width: 80%;
   background-color: #e7ecec;
   padding: 20px;
   margin: 15px;
@@ -137,6 +137,9 @@
   .orders__container {
     width: 90%;
     min-height: 500px;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   .empty__container {
     min-height: 500px;

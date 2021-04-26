@@ -1,4 +1,5 @@
 .App {
+  margin-top: 55px;
   width: 100%;
   text-align: center;
 }
@@ -10,8 +11,8 @@
 }
 .Categories , .Cart, .ordr{
   /* height: 39px; */
-  width: 100%;
-  margin-top: 55px;
+  /* width: 100%;
+  margin-top: 55px; */
   
 }
 .banner{
@@ -26,8 +27,19 @@
 }
 
 
-@media (max-width: 680px){
-  .Categories, .Cart, .ordr{
-    margin-top: 95px;
+@media (max-width: 817px){
+  .App{
+    margin-top: 55px;
   }
 }
+@media (max-width: 681px){
+  .App{
+    margin-top: 96px;
+  }
+}
+/* @media (min-width: 485px) and (max-width: 498px){
+  .App{
+    margin-top: 96px;
+  }
+} */
+

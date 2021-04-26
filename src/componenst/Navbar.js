@@ -62,14 +62,12 @@ export default function Navbar(props) {
 
         <ul>
           <li className="nav-item">
-            <Link className="link" onClick={signInOut} >
-              {
-              props.user ?
-               <NavItem span={props.user.displayName} text="Log out" /> :
-               <NavItem span="Hello Guest" text="Sign In" />
-              
-              }
-             
+            <Link className="link" onClick={signInOut}>
+              {props.user ? (
+                <NavItem span={props.user.displayName} text="Log out" />
+              ) : (
+                <NavItem span="Hello Guest" text="Sign In" />
+              )}
             </Link>
           </li>
           <li className="nav-item">
@@ -84,8 +82,9 @@ export default function Navbar(props) {
           </li>
           <li>
             <Link className="link" to="/cart">
-              <ShoppingCartIcon />
-              <span>{props.cart.length}</span>
+              <p className="cart-icon">
+                <ShoppingCartIcon />{props.cart.length}
+              </p>
             </Link>
           </li>
         </ul>

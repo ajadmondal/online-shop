@@ -17,8 +17,8 @@
     align-items: center;
 }
 .empty__order{
-    min-width: 400px;
-    max-width: 600px;
+    width: 400px;
+    max-width: 80%;
     background-color: rgb(231, 236, 236);
     padding: 20px;
     margin:15px;
@@ -35,10 +35,10 @@
 .order__container{
     margin:20px 0 ;
     background-color: rgb(237, 241, 241);
-padding: 20px;
-border-style: dashed;
-  border-width: 2px;
-border-color: rgb(238, 155, 60);
+    padding: 20px;
+    border-style: dashed;
+    border-width: 2px;
+    border-color: rgb(238, 155, 60);
 // border-width: 1px;
 p{
     font-weight: 600;
@@ -99,6 +99,7 @@ h5{
     .orders__container{
         width: 90%;
         min-height: 500px;
+        justify-content: center;
     }
     .empty__container{
         min-height: 500px;
