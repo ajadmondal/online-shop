@@ -1,9 +1,6 @@
 import React from 'react'
 import "./Item.css";
 export default function Item(props) {
-    const handleClick = () =>{
-        props.handleCart(props);
-    }
     return (
         <div className="container">
             <div className="image-container">
@@ -15,7 +12,7 @@ export default function Item(props) {
                {/* <p>{props.description}</p> */}
                <div className="price">
                     <i><small>$</small> <strong>{props.price}</strong></i>
-                    <button onClick = {handleClick}>Add to cart</button>
+                    <button onClick = { () => props.handleCart(props)}>Add to cart</button>
                </div>
             </div>
         </div>

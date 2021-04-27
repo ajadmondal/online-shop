@@ -5,6 +5,8 @@ import Loader from "react-loader-spinner";
 export default function Body({ path, handleCart }) {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  //loading the products by API call
   useEffect(() => {
     setLoading(true);
     fetch(`https://fakestoreapi.com/products${path}`)
@@ -13,6 +15,8 @@ export default function Body({ path, handleCart }) {
       .then(() => setLoading(false));
     // console.log(items);
   }, [path]);
+  
+  
   return (
     <div className="body-container">
       {loading ? (
