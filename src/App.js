@@ -12,27 +12,34 @@ function App() {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [user, setUser] = useState();
+
+  // Removing items from Cart
   const handleRemove = (title) => {
     let i = 0;
-    for (; i < cart.length; i++){
-      if (cart[i].title === title)
-        break;
+    for (; i < cart.length; i++) {
+      if (cart[i].title === title) break;
     }
     if (i > -1) {
-      const price = Number(Number(totalPrice) - Number(cart[i].price)).toFixed(2);
+      const price = Number(Number(totalPrice) - Number(cart[i].price)).toFixed(
+        2
+      );
       setTotalPrice(price);
       cart.splice(i, 1);
       setCart(cart);
-      if(user) updateCartToDB(cart, price);
-  }
-  }
+      if (user) updateCartToDB(cart, price);
+    }
+  };
+
+  // Adding items to Cart
   const addToCart = (e) => {
     const newcart = [...cart, e];
     setCart(newcart);
     const price = Number(Number(totalPrice) + Number(e.price)).toFixed(2);
     setTotalPrice(price);
-    if(user) updateCartToDB(newcart, price);
-  }
+    if (user) updateCartToDB(newcart, price);
+  };
+
+  // Uploading the Cart to DB
   const updateCartToDB = (newcart, price) => {
     db.collection("users")
       .doc(user?.uid)
@@ -49,29 +56,29 @@ function App() {
         // The document probably doesn't exist.
         console.error("Error updating document: ", error);
       });
-  }
+  };
+
+  //Getting the User
   useEffect(() => {
-    auth.onAuthStateChanged(authUser => {
+    auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         setUser(authUser);
-      }
-      else {
+      } else {
         setUser(null);
       }
-    })
+    });
   }, [user]);
 
-  // handling cart------------------------------------------------
+  // Loadling Cart------------------------------------------------
   useEffect(() => {
     if (!user) {
       setCart([]);
     } else {
-      const rute = db
-        .collection("users")
-        .doc(user?.uid)
-        .collection("cart")
-        .doc("cart");
-        rute
+        db
+          .collection("users")
+          .doc(user?.uid)
+          .collection("cart")
+          .doc("cart")
           .get()
           .then((doc) => {
             const data = doc.data();
@@ -88,6 +95,8 @@ function App() {
           });
     }
   }, [user]);
+
+  
   return (
     <Router>
       <div className="App">
@@ -101,13 +110,11 @@ function App() {
             updateCartToDB={updateCartToDB}
           />
         </div>
-        
+
         <Switch>
           <Route path="/orders&returns">
             <div className="ordr">
-              <Orders
-                user={user}
-              />
+              <Orders user={user} />
             </div>
           </Route>
           <Route path="/" exact>
@@ -120,10 +127,7 @@ function App() {
                 alt=""
               />
             </div>
-            <Body
-              path=""
-              handleCart={addToCart}
-            />
+            <Body path="" handleCart={addToCart} />
           </Route>
           <Route path="/electronics">
             <div className="Categories">
@@ -135,10 +139,7 @@ function App() {
                 alt=""
               />
             </div>
-            <Body
-              path="/category/electronics"
-              handleCart={addToCart}
-            />
+            <Body path="/category/electronics" handleCart={addToCart} />
           </Route>
           <Route path="/jewelery">
             <div className="Categories">
@@ -150,10 +151,7 @@ function App() {
                 alt=""
               />
             </div>
-            <Body
-              path="/category/jewelery"
-              handleCart={addToCart}
-            />
+            <Body path="/category/jewelery" handleCart={addToCart} />
           </Route>
           <Route path="/men-clothing">
             <div className="Categories">
@@ -165,10 +163,7 @@ function App() {
                 alt=""
               />
             </div>
-            <Body
-              path="/category/men clothing"
-              handleCart={addToCart}
-            />
+            <Body path="/category/men clothing" handleCart={addToCart} />
           </Route>
           <Route path="/women-clothing">
             <div className="Categories">
@@ -180,10 +175,7 @@ function App() {
                 alt=""
               />
             </div>
-            <Body
-              path="/category/women clothing"
-              handleCart={addToCart}
-            />
+            <Body path="/category/women clothing" handleCart={addToCart} />
           </Route>
           <Route path="/cart">
             <div className="Cart">

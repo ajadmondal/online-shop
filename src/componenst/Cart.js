@@ -11,10 +11,14 @@ export default function Cart(props) {
   const user = props.user;
   const items = [...props.items];
   const history = useHistory();
+
+  
+  // Placing the order to DB
   const checkout = () => {
     if (!user) {
-     alert("Please Sign In to Proceed.");
+      alert("Please Sign In to Proceed.");
     }
+    //upload the order details
     else {
       const d = new Date();
       const id = uuidv4();
@@ -37,10 +41,14 @@ export default function Cart(props) {
           props.updateCartToDB([], 0);
         });
     }
-  }
+  };
+
+  //Redirect to Home page if cart is empty
   const redirect = () => {
     history.push("/");
   };
+
+
   return (
     <div>
       {props.items.length === 0 ? (
@@ -70,19 +78,7 @@ export default function Cart(props) {
               />
             ))}
           </div>
-          {props.items.length === 0 ? (
-            <div className="cart-empty-container">
-              <div className="cart-empty" onClick={redirect}>
-                <h3>Your cart is empty!</h3>
-                <Link className="link" to="">
-                  <h5>Continue Shopping</h5>
-                  {/* <i> */}
-                  <AddShoppingCartIcon fontSize="large" />
-                  {/* </i> */}
-                </Link>
-              </div>
-            </div>
-          ) : (
+          
             <div className="cart-container-total">
               <div className="cart-total">
                 <p>
@@ -95,7 +91,7 @@ export default function Cart(props) {
                 <button onClick={checkout}>Proceed to Checkout</button>
               </div>
             </div>
-          )}
+          {/* )} */}
         </div>
       )}
     </div>
