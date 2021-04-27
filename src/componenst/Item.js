@@ -7,7 +7,7 @@ export default function Item(props) {
     return (
         <div className="container">
             <div className="image-container">
-                <img src={props.image} alt="Product Image"/>
+                <img src={props.image} alt="Product Snap"/>
             </div>
             
             <div className="bottom-container">

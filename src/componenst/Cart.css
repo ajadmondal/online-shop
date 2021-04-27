@@ -1,5 +1,6 @@
 .cart-container{
     width: 100%;
+    min-height: 50vh;
     /* min-width: 300px; */
     /* padding: 15px; */
     display: flex;
@@ -13,7 +14,7 @@
 }
 .cart-empty-container{
     width: 100%;
-    min-height: 600px;
+    min-height: 60vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,8 +108,8 @@
         min-width: 250px;
     }
 }
-@media (max-width : 400px){
+/* @media (max-width : 400px){
     .cart-empty-container{
         height: 500px;
     }
-}
+} */

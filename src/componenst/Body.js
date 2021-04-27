@@ -2,19 +2,20 @@ import React, {useState, useEffect} from 'react'
 import "./Body.css";
 import Item from "./Item";
 import Loader from "react-loader-spinner";
-export default function Body(props) {
-    const [items, setItems] = useState([]);
-    useEffect(() => {
-      props.setLoading(true);
-      fetch(`https://fakestoreapi.com/products${props.path}`)
-        .then((res) => res.json())
-        .then((json) => setItems(json))
-        .then(() => props.setLoading(false));
-      // console.log(items);
-    }, [props.path]);
+export default function Body({ path, handleCart }) {
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://fakestoreapi.com/products${path}`)
+      .then((res) => res.json())
+      .then((json) => setItems(json))
+      .then(() => setLoading(false));
+    // console.log(items);
+  }, [path]);
   return (
-    <div className="home-container">
-      {props.loading ? (
+    <div className="body-container">
+      {loading ? (
         <div className="loader">
           <Loader
             type="Grid"
@@ -33,7 +34,7 @@ export default function Body(props) {
               title={item.title}
               description={item.description}
               price={item.price}
-              handleCart={props.handleCart}
+              handleCart={handleCart}
             />
           ))}
         </>

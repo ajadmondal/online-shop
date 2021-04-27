@@ -22,8 +22,6 @@ export default function Footer() {
               className="profile"
             />
             <div className="description">
-              
-
               <h5>Developer Intro</h5>
               <div className="name">
                 <h3>Sk Ajad Mondal</h3>
@@ -39,6 +37,7 @@ export default function Footer() {
                 href="https://github.com/ajadmondal/online-shop"
                 target="_blank"
                 title="Fork this project"
+                rel="noreferrer"
               >
                 <GoRepoForked />
               </a>
@@ -49,6 +48,7 @@ export default function Footer() {
               href="https://github.com/ajadmondal"
               target="_blank"
               className="tooltip"
+              rel="noreferrer"
             >
               <FaGithub />
               <p className="tooltiptext">My GitHub Profile</p>
@@ -57,6 +57,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/sk-ajad-mondal-454995167/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3B7Q4rs6TMSXCnpzFmtAaPOw%3D%3D"
               target="_blank"
               className="tooltip"
+              rel="noreferrer"
             >
               <FaLinkedin />
               <span className="tooltiptext">My LinkedIn Profile</span>
@@ -65,6 +66,7 @@ export default function Footer() {
               href="mailto:ajadmondal99@gmail.com"
               target="_blank"
               className="tooltip"
+              rel="noreferrer"
             >
               <HiOutlineMail />
               <span className="tooltiptext">Mail Me</span>
@@ -73,6 +75,7 @@ export default function Footer() {
               href="https://leetcode.com/ajadmondal/"
               target="_blank"
               className="tooltip"
+              rel="noreferrer"
             >
               <SiLeetcode />
               <span className="tooltiptext">My LeetCode Profile</span>
@@ -81,6 +84,7 @@ export default function Footer() {
               className="tooltip"
               href="https://www.instagram.com/sam.ajad/"
               target="_blank"
+              rel="noreferrer"
             >
               <FaInstagram />
               <span className="tooltiptext">My Instagram Profile</span>

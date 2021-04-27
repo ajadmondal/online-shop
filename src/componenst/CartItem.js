@@ -8,7 +8,7 @@ export default function CartItem(props) {
     return (
       <div className="cart-item-container">
         <div className="cart-item-image-container">
-          <img src={props.image} alt="Product Image" />
+          <img src={props.image} alt="Product Snap" />
         </div>
 
         <div className="cart-item-bottom-container">
@@ -18,9 +18,7 @@ export default function CartItem(props) {
             <i>
               <small>$</small> <strong>{props.price}</strong>
             </i>
-            {
-              props.cart ? <button onClick={handleClick}>Remove</button>: null
-            }
+            {props.cart ? <button onClick={handleClick}>Remove</button> : null}
           </div>
         </div>
       </div>

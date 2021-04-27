@@ -34,7 +34,7 @@ export default function Cart(props) {
           history.push("/orders&returns");
           props.setCart([]);
           props.setTotalPrice(0);
-          props.updateToDB([], 0);
+          props.updateCartToDB([], 0);
         });
     }
   }

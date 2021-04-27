@@ -6,15 +6,12 @@ import Footer from "./componenst/Footer";
 import Categories from './componenst/Categories';
 import Cart from './componenst/Cart';
 import Orders from "./componenst/Orders";
-
 import { auth, db } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [user, setUser] = useState();
-  const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(false);
   const handleRemove = (title) => {
     let i = 0;
     for (; i < cart.length; i++){
@@ -26,7 +23,7 @@ function App() {
       setTotalPrice(price);
       cart.splice(i, 1);
       setCart(cart);
-      if(user) updateToDB(cart, price);
+      if(user) updateCartToDB(cart, price);
   }
   }
   const addToCart = (e) => {
@@ -34,9 +31,9 @@ function App() {
     setCart(newcart);
     const price = Number(Number(totalPrice) + Number(e.price)).toFixed(2);
     setTotalPrice(price);
-    if(user) updateToDB(newcart, price);
+    if(user) updateCartToDB(newcart, price);
   }
-  const updateToDB = (newcart, price) => {
+  const updateCartToDB = (newcart, price) => {
     db.collection("users")
       .doc(user?.uid)
       .collection("cart")
@@ -101,7 +98,7 @@ function App() {
             setCart={setCart}
             setUser={setUser}
             setTotalPrice={setTotalPrice}
-            updateToDB={updateToDB}
+            updateCartToDB={updateCartToDB}
           />
         </div>
         
@@ -109,11 +106,7 @@ function App() {
           <Route path="/orders&returns">
             <div className="ordr">
               <Orders
-                loading={loading}
-                setLoading={setLoading}
                 user={user}
-                orders={orders}
-                setOrders={setOrders}
               />
             </div>
           </Route>
@@ -128,8 +121,6 @@ function App() {
               />
             </div>
             <Body
-              loading={loading}
-              setLoading={setLoading}
               path=""
               handleCart={addToCart}
             />
@@ -145,8 +136,6 @@ function App() {
               />
             </div>
             <Body
-              loading={loading}
-              setLoading={setLoading}
               path="/category/electronics"
               handleCart={addToCart}
             />
@@ -162,8 +151,6 @@ function App() {
               />
             </div>
             <Body
-              loading={loading}
-              setLoading={setLoading}
               path="/category/jewelery"
               handleCart={addToCart}
             />
@@ -179,8 +166,6 @@ function App() {
               />
             </div>
             <Body
-              loading={loading}
-              setLoading={setLoading}
               path="/category/men clothing"
               handleCart={addToCart}
             />
@@ -196,8 +181,6 @@ function App() {
               />
             </div>
             <Body
-              loading={loading}
-              setLoading={setLoading}
               path="/category/women clothing"
               handleCart={addToCart}
             />
@@ -211,7 +194,7 @@ function App() {
                 totalPrice={totalPrice}
                 setCart={setCart}
                 setTotalPrice={setTotalPrice}
-                updateToDB={updateToDB}
+                updateCartToDB={updateCartToDB}
               />
             </div>
           </Route>
