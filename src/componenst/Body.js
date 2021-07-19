@@ -26,7 +26,7 @@ export default function Body({ path, handleCart }) {
             type="Grid"
             color="rgb(238, 155, 60)"
             height={100}
-            width={100}
+            width={90}
             // timeout={3000} //3 secs
           />
         </div>
