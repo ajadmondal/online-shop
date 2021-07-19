@@ -29,9 +29,10 @@ export default function Footer() {
               </div>
 
               <p>
-                I am an undergraduate Computer Science Engineer. I am passionate
-                about Web Development, and love to make Web Apps in React. I
-                also have a great interest in Algorithms and Data Structures :)
+                I am a self-motivated Software Engineer with a keen interest in
+                exploring new Web technologies and always ready to face
+                challenges where I can utilize my ability and improve it. My
+                expertise is in React Development and problem-solving :)
               </p>
               <a
                 href="https://github.com/ajadmondal/online-shop"
