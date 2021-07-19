@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext } from 'react';
+import { productsContext } from '../Store';
 import "./Body.css";
 import Item from "./Item";
 import Loader from "react-loader-spinner";
 export default function Body({ path, handleCart }) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useContext(productsContext);
   const [loading, setLoading] = useState(false);
 
   //loading the products by API call
