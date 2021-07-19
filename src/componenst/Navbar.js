@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import { userContext, cartContext } from "../Store";
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
@@ -8,9 +9,13 @@ import { Link } from 'react-router-dom';
 import firebase from "firebase/app";
 import { auth } from "../firebase";
 export default function Navbar(props) {
+
+  const [cart, setCart] = useContext(cartContext);
+  const [user, setUser] = useContext(userContext);
+
   const provider = new firebase.auth.GoogleAuthProvider();
   const signInOut = () => {
-    !props.user
+    !user
       ? auth
         .signInWithPopup(provider)
         .then(() => {
@@ -36,8 +41,8 @@ export default function Navbar(props) {
           .catch((error) => alert(error.message))
       : auth.signOut()
         .then(() => {
-          props.setUser(null);
-          props.setCart([]);
+          setUser(null);
+          setCart([]);
           props.setTotalPrice(0);
         })
         .catch((error) => alert(error.message));
@@ -63,8 +68,8 @@ export default function Navbar(props) {
         <ul>
           <li className="nav-item">
             <Link className="link" onClick={signInOut}>
-              {props.user ? (
-                <NavItem span={props.user.displayName} text="Log out" />
+              {user ? (
+                <NavItem span={user.displayName} text="Log out" />
               ) : (
                 <NavItem span="Hello Guest" text="Sign In" />
               )}
@@ -83,7 +88,7 @@ export default function Navbar(props) {
           <li>
             <Link className="link" to="/cart">
               <p className="cart-icon">
-                <ShoppingCartIcon />{props.cart.length}
+                <ShoppingCartIcon />{cart.length}
               </p>
             </Link>
           </li>
