@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import './App.css';
+import { userContext, cartContext, OrdersProvider, ProductsProvider} from './Store';
 import Body from "./componenst/Body";
 import Navbar from './componenst/Navbar';
 import Footer from "./componenst/Footer";
@@ -9,9 +10,9 @@ import Orders from "./componenst/Orders";
 import { auth, db } from "./firebase";
 import {BrowserRouter as Router, Route, Switch} from  'react-router-dom';
 function App() {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useContext(cartContext);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [user, setUser] = useState();
+  const [user, setUser] = useContext(userContext);
 
   // Removing items from Cart
   const handleRemove = (title) => {
@@ -102,10 +103,6 @@ function App() {
       <div className="App">
         <div className="Navbar">
           <Navbar
-            cart={cart}
-            user={user}
-            setCart={setCart}
-            setUser={setUser}
             setTotalPrice={setTotalPrice}
             updateCartToDB={updateCartToDB}
           />
@@ -114,7 +111,9 @@ function App() {
         <Switch>
           <Route path="/orders&returns">
             <div className="ordr">
-              <Orders user={user} />
+              <OrdersProvider>
+                <Orders user={user} />
+              </OrdersProvider>
             </div>
           </Route>
           <Route path="/" exact>
@@ -127,7 +126,9 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="" handleCart={addToCart} />
+            <ProductsProvider>
+              <Body path="" handleCart={addToCart} />
+            </ProductsProvider>
           </Route>
           <Route path="/electronics">
             <div className="Categories">
@@ -139,7 +140,9 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/electronics" handleCart={addToCart} />
+            <ProductsProvider>
+              <Body path="/category/electronics" handleCart={addToCart} />
+            </ProductsProvider>
           </Route>
           <Route path="/jewelery">
             <div className="Categories">
@@ -151,7 +154,9 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/jewelery" handleCart={addToCart} />
+            <ProductsProvider>
+              <Body path="/category/jewelery" handleCart={addToCart} />
+            </ProductsProvider>
           </Route>
           <Route path="/men-clothing">
             <div className="Categories">
@@ -163,7 +168,9 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/men clothing" handleCart={addToCart} />
+            <ProductsProvider>
+              <Body path="/category/men clothing" handleCart={addToCart} />
+            </ProductsProvider>
           </Route>
           <Route path="/women-clothing">
             <div className="Categories">
@@ -175,16 +182,15 @@ function App() {
                 alt=""
               />
             </div>
-            <Body path="/category/women clothing" handleCart={addToCart} />
+            <ProductsProvider>
+              <Body path="/category/women clothing" handleCart={addToCart} />
+            </ProductsProvider>
           </Route>
           <Route path="/cart">
             <div className="Cart">
               <Cart
-                user={user}
-                items={cart}
                 handleRemove={handleRemove}
                 totalPrice={totalPrice}
-                setCart={setCart}
                 setTotalPrice={setTotalPrice}
                 updateCartToDB={updateCartToDB}
               />
