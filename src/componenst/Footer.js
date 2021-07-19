@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="footer__container">
           <div className="intro">
             <img
-              src="https://media-exp1.licdn.com/dms/image/C5103AQHM9wyoc5e7lQ/profile-displayphoto-shrink_400_400/0/1571596554431?e=1625097600&v=beta&t=8GATVmZqLbasRhKupJkjcCUavPn-2fJCPTN9PIPc__k"
+              src="https://avatars.githubusercontent.com/u/53702822?v=4"
               alt="Developer's Profile"
               className="profile"
             />
