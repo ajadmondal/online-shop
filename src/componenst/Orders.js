@@ -1,4 +1,5 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { ordersContext } from '../Store';
 import './Orders.css';
 import { db } from "../firebase";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
@@ -55,7 +56,7 @@ const Order = ({ order, pay, returnItem }) => {
 const Orders = ({ user }) => {
   const [changed, setChanged] = useState(true);
   const [loading, setLoading] = useState(false);
-  const [orders, setOrders] = useState([]);
+  const [orders, setOrders] = useContext(ordersContext);
   const history = useHistory();
 
 
